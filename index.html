@@ -5,16 +5,39 @@
     <meta charset="UTF-8"/>
 
     <script src="src/index.js" type="module"></script>
+    <style>
+        .input-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 250px;
+            margin-bottom: 10px;
+        }
+
+        #result {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
-<h1>Implement the symbolic diff here</h1>
-<div id="container">
+<h1>Symbolic diff</h1>
 
+<div class="input-container">
+    <label>Polynom: </label>
+    <input id="polynomField" type="text">
 </div>
+
+<div class="input-container">
+    <label>Variable: </label>
+    <input id="variableField" type="text">
+</div>
+
+<div id="result"></div>
+
 <div>
     <button id="demoButton">
-        Add something
+        calculate
     </button>
 </div>
 </body>

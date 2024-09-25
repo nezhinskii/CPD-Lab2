@@ -1,3 +1,5 @@
+import { MiniMaple } from "./miniMaple.js";
+
 document.addEventListener('DOMContentLoaded',setup)
 
 function setup() {
@@ -5,10 +7,15 @@ function setup() {
 }
 
 function addSomething(){
-    const someDummyDiv = document.createElement('div');
-    someDummyDiv.classList.add('generated');
-    const count = document.getElementsByClassName('generated').length;
-    someDummyDiv.innerHTML = `I was created by JS! There are already ${count} of my friends!`;
-    const container = document.getElementById('container');
-    container.appendChild(someDummyDiv);
+    const polynom = document.getElementById('polynomField').value;
+    const variable = document.getElementById('variableField').value;
+    const resultElement = document.getElementById('result');
+    try{
+        const result = MiniMaple.diff(polynom, variable);
+        resultElement.style.color = 'black';
+        resultElement.innerHTML = `Результат: ${result}`;
+    } catch (error) {
+        resultElement.style.color = 'red';
+        resultElement.innerHTML = `Ошибка в формате выражения. ${error}`;
+    }
 }
